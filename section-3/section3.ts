@@ -9,4 +9,4 @@ class TestClass {
 
 const t = new TestClass('a')
 
-t.b
+console.log(t.a)
