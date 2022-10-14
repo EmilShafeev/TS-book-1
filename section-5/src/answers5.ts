@@ -74,18 +74,24 @@ class AwsomeBuilder {
     protected someUrl: string | null = null
 
     setData(data: string) {
-        this.someData = data
-        return new AwsomeBuilderWithData()
+        return new AwsomeBuilderWithData().setData(data)
     }
 }
 
 class AwsomeBuilderWithData extends AwsomeBuilder {
+    setData(data: string) {
+        this.someData = data
+        return this
+    }
     setUrl(url: string) {
-        this.someUrl = url
-        return new AwsomeBuilderWithUrlAndData()
+        return new AwsomeBuilderWithUrlAndData().setUrl(url)
     }
 }
 class AwsomeBuilderWithUrlAndData extends AwsomeBuilderWithData {
+    setUrl(url: string) {
+        this.someUrl = url
+        return this
+    }
     send() {
         if (!this.someUrl) throw new Error('Empty URL')
         console.log(`URL: ${this.someUrl}  |  data: ${this.someData}`)
