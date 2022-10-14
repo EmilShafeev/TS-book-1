@@ -1,4 +1,4 @@
-const log = console.log
+export const log = console.log
 
 type Filter = { <T>(arr: T[], f: (item: T) => boolean): T[] }
 
